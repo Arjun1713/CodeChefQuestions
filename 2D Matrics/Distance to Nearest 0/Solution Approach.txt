@@ -1,0 +1,24 @@
+1. Initialization:
+
+    Create an empty queue called queue.
+    Go through each cell in the matrix, row by row, and column by column.
+        If the current cell's value is 0:
+            Add its coordinates to the queue.
+        Otherwise (if the current cell's value is 1):
+             Change the cell's value to -1.
+2. BFS Traversal:
+
+    While the queue is not empty:
+        Remove the first pair of row and column numbers from the queue. Let's call these currentRow and currentCol.
+        Now, look at the four neighbors of this cell.
+            For each of these four neighbors:
+                Calculate the row and column number of the neighbor (newRow, newCol).
+                First, check if the neighbor is within the bounds of the matrix.
+                Second, check if the neighbor's value is -1.
+                If both of these conditions are true:
+                    Set the value of the neighbor cell in the matrix to matrix[currentRow][currentCol] + 1.
+                    Add the neighbor's coordinates (newRow, newCol) to the queue.
+                Otherwise (the neighbor is either out of bounds or has already been visited), check a third condition: Is the neighbor's current value greater than matrix[currentRow][currentCol] + 1?
+                    If this third condition is also true:
+                        Update the neighbor's value to matrix[currentRow][currentCol] + 1.
+                        Add the neighbor's coordinates (newRow, newCol) to the queue.
