@@ -1,8 +1,7 @@
-import java.util.*;
 import java.lang.*;
-import java.io.*;
+import java.util.*;
 
-class Codechef
+class Solution
 {
 	public static void main (String[] args) throws java.lang.Exception
 	{
