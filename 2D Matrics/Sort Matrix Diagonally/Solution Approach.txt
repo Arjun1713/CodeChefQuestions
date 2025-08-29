@@ -1,0 +1,33 @@
+1. Read the number of rows (N) and columns (M) of the matrix from the input.
+
+2. Create a 2D integer array A of size N×M to store the matrix elements.
+
+3. Create a HashMap called `map`:
+   - Keys: Integer (representing the diagonal identifier i - j)
+   - Values: ArrayList<Integer> (representing the elements on that diagonal)
+
+4. Populate the HashMap:
+   - Iterate through each element of the matrix A using nested loops:
+     - Outer loop: for rows i from 0 to N−1
+     - Inner loop: for columns j from 0 to M−1
+     - Read the value of A[i][j] from the input
+     - Calculate the diagonal identifier: i - j
+     - Retrieve the ArrayList using:
+       `map.getOrDefault(i - j, new ArrayList<>())`
+     - Add A[i][j] to the ArrayList
+     - Put the updated ArrayList back into the map with key i - j
+
+5. Sort Diagonals:
+   - Iterate through the keys in the map
+   - For each key:
+     - Retrieve the corresponding ArrayList
+     - Sort the ArrayList using `Collections.sort()`
+
+6. Place Sorted Values Back into Matrix and Output:
+   - Iterate through each element of the matrix A using nested loops:
+     - Calculate the diagonal identifier: i - j
+     - Retrieve the ArrayList from the map
+     - Assign the first element of the ArrayList to A[i][j]
+     - Remove the first element from the ArrayList using `remove(0)`
+     - Print A[i][j] followed by a space
+   - After processing each row, print a newline character
